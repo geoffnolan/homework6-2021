@@ -14,7 +14,6 @@ header{
   flex-direction:column;
   background: #fff;
   border-bottom: 3px solid #50C7C7;
-  flex-basis: content;
   align-items: center;
   /*Your code here again.*/
 
@@ -35,8 +34,10 @@ header{
     min-height: 500px;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    flex-basis: 400px;
     /*Your code here*/
     /*You must use flex.
     /*Don't forget to vertically and horizontally 
@@ -51,8 +52,7 @@ header{
   padding: 0 0 50px 0;
   display: flex;
   flex-direction: column;
-  /*Your code here.*/
-  /*Take a look at flex-basis*/
+  flex-basis: 400px;
 }
 
 /*Requirement 6*/
@@ -84,35 +84,40 @@ header{
 
 /*Requirement 9*/
 #logo{
-   /*Your code here.*/
- 
+  animation-name: logo_grow;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
 }
 
 /*Keyframes for animation*/
 @-webkit-keyframes logo_grow{
-  /*Your code here.*/
-
+  -webkit-from {opacity: 0; width: 25px;}
+  -webkit-to {opacity: 100; width: 420px;}
 }
 
 @keyframes logo_grow{
-  /*Your code here.*/
-
+  from {opacity: 0; width: 25px;}
+  to {opacity: 100; width: 420px;}
 } 
 
 @media screen and (min-width: 850px){
 
   /*Requirement 10*/
   header{
+    flex-direction: row;
+    justify-content: space-between;
     /*Your code here again.*/  
   }
 
   /*Requirement 10*/
   .nav_links{
+    flex-direction: row;
     /*Your code here again.*/  
   }
 
   /*Requirement 11*/
   .package {
+    flex-basis: 230px;
     /*Your code here again.*/
   } 
 }
@@ -120,17 +125,45 @@ header{
 /*Requirement 12*/
 /*Add media query to handle reduced-motion*/
 /*Your code here again.*/ 
+@media (prefers-reduced-motion: reduce){
+  #logo {
+    animation: none;
+  }
+}
 
 
 
 @media print { 
 
   /*Requirement 13*/
+  body{
+    background-image: none;
+  }
   /*Requirement 14*/
+  nav{
+    width: 100%;
+  }
   /*Requirement 15*/
+  .nav_links{
+    position: relative;
+    right: -10vw;
+    width: 80vw;
+    justify-content: space-between;
+    flex-direction: row;
+  }
   /*Requirement 16*/
+  .price {
+    margin-top: auto;
+  }
   /*Requirement 17*/
-  /*Requirement 18*/
- 
+  .package{
+    border: 2px solid #45ADAD;
+    flex-basis: 200px;
+    margin-top: auto;
+  }
+  /*Requirement 18 Still showing "gallery"*/
+ .gallery{
+   display: none;
+ }
 }
 
